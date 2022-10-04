@@ -1,12 +1,12 @@
-SRC_DIR := src
-BIN_DIR := bin
+SRC_DIR := tests/src
+BIN_DIR := tests/bin
 
 SRC := $(wildcard $(SRC_DIR)/*.c)
 BIN := $(SRC:$(SRC_DIR)/%.c=$(BIN_DIR)/%)
 
 CFLAGS  := -g -Wall -Werror
-CPPFLAGS := -I..
-LDFLAGS := -L..
+CPPFLAGS := -I.
+LDFLAGS := -L. -Wl,-rpath=.
 LDLIBS  := -lmem
 
 .PHONY: all clean
